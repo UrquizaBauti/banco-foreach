@@ -23,9 +23,9 @@ class CuentaCorriente extends Cuenta
      * @params int $saldo
      * @params int $tope 
      */
-    public function __construct($numero, $titular, $saldo, $tope = 2000)
+    public function __construct($numero, $titular, $saldo, $tope = 2000, $historial=[])
     {
-        parent::__construct($numero, $titular, $saldo);
+        parent::__construct($numero, $titular, $saldo, $historial);
         $this->topeDescubierto = $tope;
     }
 
@@ -47,5 +47,6 @@ class CuentaCorriente extends Cuenta
             return parent::extraer($monto);
         }
     }
+    
 
 }

@@ -16,6 +16,7 @@
     <select name="tipo">
         <option value="e">Extracción</option>
         <option value="d">Depósito</option>
+        <option value="h">Historial</option>
     </select><br>
     <label for="monto">Monto: </label>
     <input name="monto" type="number"><br>

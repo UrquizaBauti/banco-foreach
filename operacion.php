@@ -21,9 +21,13 @@ switch($_POST["tipo"]) {
         //Polimorfismo con el mensaje depositar:
         $mensaje=$cuenta->depositar($_POST['monto']);
         break;
+    case "h":
+
+        $mensaje = $cuenta->getHistorial();
+        break;
     default:
         $mensaje="Operacion inexistente";
-        break;                
+        break;           
 }
 
 

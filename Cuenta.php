@@ -15,17 +15,21 @@ abstract class Cuenta
      */
     protected $titular;
 
+    protected $historial;
+    
+
     /**
      * Constructor
      * @params int $numero
      * @params string $titular
      * @params int $saldo
      */
-    public function __construct($numero, $titular, $saldo)
+    public function __construct($numero, $titular, $saldo, $historial)
     {
         $this->numero = $numero;
         $this->titular = $titular;
         $this->saldo = $saldo;
+        $this->historial = $historial;
     }
 
     
@@ -38,6 +42,7 @@ abstract class Cuenta
     public function depositar($monto)
     {
         $this->saldo += $monto;
+        $this->historial[] = "mas". $monto;
         return "El depósito se realizó correctamente.";
     }
 
@@ -50,6 +55,7 @@ abstract class Cuenta
      */
     public function extraer($monto) {
         $this->saldo -= $monto;
+        $this->historial[] = "-". $monto;
         return "Extracción realizada correctamente.";
     }
 
@@ -61,5 +67,10 @@ abstract class Cuenta
     public function getSaldo()
     {
         return $this->saldo;
+    }
+
+    public function getHistorial()
+    {
+        return join(',', $this->historial);
     }
 }
